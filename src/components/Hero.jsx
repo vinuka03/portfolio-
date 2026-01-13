@@ -21,12 +21,39 @@ const Hero = () => {
                     <h1 className="name">
                         Vinuka <span className="gradient-text">Ganarachchi</span>
                     </h1>
-                    <h2 className="title">
-                        <span className="highlight">Creative Developer</span> & UI Designer
-                    </h2>
+
+                    <div className="roles-container">
+                        <motion.div
+                            className="roles-scroll"
+                            animate={{ x: [0, -1000] }}
+                            transition={{
+                                x: {
+                                    repeat: Infinity,
+                                    repeatType: "loop",
+                                    duration: 20,
+                                    ease: "linear",
+                                }
+                            }}
+                        >
+                            <h2 className="title">
+                                <span className="highlight">Creative Developer</span>
+                                <span className="separator"> // </span>
+                                <span className="highlight">Data Scientist</span>
+                                <span className="separator"> // </span>
+                                <span className="highlight">Software Engineer</span>
+                                <span className="separator"> // </span>
+                                <span className="highlight">Creative Developer</span>
+                                <span className="separator"> // </span>
+                                <span className="highlight">Data Scientist</span>
+                                <span className="separator"> // </span>
+                                <span className="highlight">Software Engineer</span>
+                                <span className="separator"> // </span>
+                            </h2>
+                        </motion.div>
+                    </div>
                     <p className="description">
-                        I build interactive, high-performance web experiences that merge
-                        <span className="accent"> art</span> with <span className="accent">technology</span>.
+                        I design and develop data-driven software systems that bridge <span className="accent">artificial intelligence</span> and <span className="accent">engineering</span>.
+                        My interests lie in <span className="accent">machine learning</span>, <span className="accent">backend development</span>, and building efficient, scalable applications that solve meaningful real-world problems.
                     </p>
 
                     <div className="cta-group">

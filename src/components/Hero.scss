@@ -69,18 +69,49 @@
             }
         }
 
-        .title {
-            font-size: 2.5rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-            margin-bottom: 40px;
+        .roles-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 
-            @media (max-width: 768px) {
-                font-size: 1.8rem;
+            /* Fade masks - removed manual divs in favor of mask-image */
+            &::before,
+            &::after {
+                display: none;
             }
 
-            .highlight {
-                color: var(--text-primary);
+            .roles-scroll {
+                display: inline-block;
+                white-space: nowrap;
+            }
+
+            .title {
+                font-size: 2.5rem;
+                color: var(--text-secondary);
+                font-weight: 600;
+                margin: 0;
+                display: inline-flex;
+                gap: 20px;
+                padding-right: 20px;
+
+                @media (max-width: 768px) {
+                    font-size: 1.8rem;
+                }
+
+                .highlight {
+                    color: var(--text-primary);
+                    white-space: nowrap;
+                }
+
+                .separator {
+                    color: var(--accent-cyan);
+                    opacity: 0.5;
+                }
             }
         }
 
