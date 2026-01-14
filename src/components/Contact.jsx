@@ -1,21 +1,38 @@
-
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle, Mail, MapPin, Phone } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import './Contact.scss';
 
 const Contact = () => {
-    const [formState, setFormState] = useState('idle'); // idle, submitting, success
+    const [formState, setFormState] = useState('idle'); // idle, submitting, success, error
+    const form = useRef();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setFormState('submitting');
 
-        // Simulate API call
-        setTimeout(() => {
-            setFormState('success');
-            setTimeout(() => setFormState('idle'), 3000);
-        }, 2000);
+        emailjs
+            .sendForm(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                form.current,
+                {
+                    publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+                }
+            )
+            .then(
+                () => {
+                    setFormState('success');
+                    e.target.reset();
+                    setTimeout(() => setFormState('idle'), 3000);
+                },
+                (error) => {
+                    console.error('FAILED...', error.text);
+                    setFormState('error');
+                    setTimeout(() => setFormState('idle'), 3000);
+                },
+            );
     };
 
     return (
@@ -48,7 +65,7 @@ const Contact = () => {
                             <div className="icon-box"><Mail size={24} /></div>
                             <div>
                                 <span className="label">Mail Me</span>
-                                <span className="value">contact@vinuka.dev</span>
+                                <span className="value">vinukaganarachchi123@gmail.com</span>
                             </div>
                         </div>
 
@@ -56,7 +73,7 @@ const Contact = () => {
                             <div className="icon-box"><Phone size={24} /></div>
                             <div>
                                 <span className="label">Call Me</span>
-                                <span className="value">+94 11 22 33 444</span>
+                                <span className="value">+94 766668743</span>
                             </div>
                         </div>
 
@@ -75,18 +92,18 @@ const Contact = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <form onSubmit={handleSubmit}>
+                        <form ref={form} onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label>Your Name</label>
-                                <input type="text" placeholder="John Doe" required />
+                                <input type="text" name="user_name" placeholder="John Doe" required />
                             </div>
                             <div className="form-group">
                                 <label>Your Email</label>
-                                <input type="email" placeholder="john@example.com" required />
+                                <input type="email" name="user_email" placeholder="john@example.com" required />
                             </div>
                             <div className="form-group">
                                 <label>Message</label>
-                                <textarea placeholder="Tell me about your project..." rows="4" required></textarea>
+                                <textarea name="message" placeholder="Tell me about your project..." rows="4" required></textarea>
                             </div>
 
                             <button type="submit" className={`submit-btn ${formState}`} disabled={formState !== 'idle'}>
@@ -122,6 +139,17 @@ const Contact = () => {
                                             className="btn-content success"
                                         >
                                             Message Sent! <CheckCircle size={18} />
+                                        </motion.span>
+                                    )}
+                                    {formState === 'error' && (
+                                        <motion.span
+                                            key="error"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            className="btn-content error"
+                                        >
+                                            Failed! Try again.
                                         </motion.span>
                                     )}
                                 </AnimatePresence>

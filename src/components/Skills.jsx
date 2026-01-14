@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Database, Layout, Server, Smartphone, Terminal, Cpu } from 'lucide-react';
+import { Database, Layout, Server, Smartphone, Terminal, Cpu, ToolCaseIcon } from 'lucide-react';
 import './Skills.scss';
 
 const Skills = () => {
@@ -9,10 +9,11 @@ const Skills = () => {
             title: "Frontend Development",
             icon: <Layout size={30} />,
             skills: [
-                { name: "React / Next.js", level: 95 },
-                { name: "TypeScript", level: 90 },
-                { name: "Tailwind CSS", level: 95 },
-                { name: "Framer Motion", level: 85 },
+                { name: "HTML", level: 80 },
+                { name: "React / Next.js", level: 80 },
+                { name: "TypeScript", level: 75 },
+                { name: "Tailwind CSS", level: 75 }
+
             ]
         },
         {
@@ -20,19 +21,20 @@ const Skills = () => {
             icon: <Server size={30} />,
             skills: [
                 { name: "Node.js", level: 88 },
-                { name: "PostgreSQL", level: 80 },
-                { name: "GraphQL", level: 75 },
-                { name: "Python", level: 70 },
+                { name: "PostgreSQL/MySQL", level: 80 },
+                { name: "JavaScript", level: 80 },
+                { name: "Python/FastAPI", level: 80 },
             ]
         },
         {
-            title: "Mobile & Tools",
-            icon: <Smartphone size={30} />,
+            title: "Tools",
+            icon: <ToolCaseIcon size={30} />,
             skills: [
-                { name: "React Native", level: 85 },
-                { name: "Git / CI/CD", level: 90 },
+
+                { name: "Git / CI/CD", level: 75 },
                 { name: "Docker", level: 75 },
                 { name: "Figma", level: 80 },
+                { name: "Canva", level: 80 }
             ]
         }
     ];
