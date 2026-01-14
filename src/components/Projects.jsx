@@ -2,41 +2,42 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import truemortemImg from '../assets/truemortem.jpeg';
+import productpImg from '../assets/productp.jpeg';
+import myhealthImg from '../assets/myhealth.jpeg';
 import './Projects.scss';
 
 const projects = [
     {
         id: 1,
-        title: "Crypto Dashboard",
+        title: "Truemortem",
         category: "Web",
-        description: "Real-time cryptocurrency tracking platform with advanced charting.",
-        stack: ["React", "Chart.js", "Firebase"],
-        color: "linear-gradient(135deg, #1f4037, #99f2c8)"
+        description: "Developed a dual model AI system using verbal autopsy narratives and structured postmortem data to analyze heart-related deaths. Created Sri Lanka’s first curated cardiovascular autopsy dataset, with interactive dashboards and a chatbot for intuitive analysis.",
+        stack: ["React", "FastAPI", "MongoDB", "Rasa"],
+        image: truemortemImg,
+        github: "https://github.com/SachithPathiranage/TrueMortem"
+
     },
     {
         id: 2,
-        title: "Ecommerce App",
-        category: "Mobile",
-        description: "Full-featured shopping application with payment integration.",
-        stack: ["React Native", "Redux", "Stripe"],
-        color: "linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b)"
+        title: "Product Pal",
+        category: "Web",
+        description: "Built a Retrieval-Augmented Generation (RAG) system that answers user queries using product manuals and documents. The system combines vector search with an AI chatbot to deliver accurate, context aware responses through an intuitive user interface.",
+        stack: ["React", "FastAPI", "Tailwind CSS"],
+        image: productpImg,
+        github: "https://github.com/vinuka03/User_guide-Reader"
+
     },
     {
         id: 3,
-        title: "AI Image Generator",
+        title: "MyHealth",
         category: "Web",
-        description: "SaaS platform for generating art using stable diffusion.",
-        stack: ["Next.js", "Python", "TensorFlow"],
-        color: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)"
-    },
-    {
-        id: 4,
-        title: "Travel Agency UI",
-        category: "Design",
-        description: "Modern UI/UX design kit for travel booking platforms.",
-        stack: ["Figma", "UI Design"],
-        color: "linear-gradient(135deg, #12c2e9, #c471ed, #f64f59)"
-    },
+        description: "MyHEALTH is a comprehensive health and wellness website designed to deliver an informative and user-friendly digital experience. The platform includes features such as user registration, product browsing, interactive quizzes, and communication and subscription sections, presented through a clean and well structured interface.",
+        stack: ["JavaScript", "HTML", "CSS "],
+        image: myhealthImg,
+        // No github link for this project
+        demo: "#"
+    }
 ];
 
 const ProjectCard = ({ project }) => {
@@ -51,7 +52,7 @@ const ProjectCard = ({ project }) => {
         >
             <div className="card-inner">
                 <div className="card-front">
-                    <div className="card-image" style={{ background: project.color }}>
+                    <div className="card-image" style={{ backgroundImage: `url(${project.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className="overlay"></div>
                         <span className="category-tag">{project.category}</span>
                     </div>
@@ -64,13 +65,19 @@ const ProjectCard = ({ project }) => {
                             ))}
                         </div>
                         <div className="card-actions">
-                            <a href="#" className="icon-link"><Github size={20} /></a>
-                            <a href="#" className="icon-link"><ExternalLink size={20} /></a>
+                            {project.github && (
+                                <a href={project.github} target="_blank" rel="noopener noreferrer" className="icon-link">
+                                    <Github size={20} />
+                                </a>
+                            )}
+                            {/*<a href={project.demo} target="_blank" rel="noopener noreferrer" className="icon-link">
+                                <ExternalLink size={20} />
+                        </a>*/}
                         </div>
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </motion.div >
     );
 };
 
