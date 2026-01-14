@@ -65,7 +65,12 @@
             letter-spacing: -2px;
 
             @media (max-width: 768px) {
-                font-size: 3.5rem;
+                font-size: 3rem;
+                letter-spacing: -1px;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 2.5rem;
             }
         }
 
@@ -103,6 +108,10 @@
                     font-size: 1.8rem;
                 }
 
+                @media (max-width: 480px) {
+                    font-size: 1.5rem;
+                }
+
                 .highlight {
                     color: var(--text-primary);
                     white-space: nowrap;
@@ -133,6 +142,16 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap; // Allow wrapping on small screens
+
+            @media (max-width: 480px) {
+                flex-direction: column;
+                gap: 15px;
+
+                .btn {
+                    width: 100%;
+                }
+            }
 
             .btn {
                 padding: 15px 35px;
@@ -141,9 +160,11 @@
                 text-decoration: none;
                 display: flex;
                 align-items: center;
+                justify-content: center;
                 gap: 10px;
                 transition: all 0.3s ease;
                 cursor: pointer;
+                white-space: nowrap;
 
                 &.btn-primary {
                     background: linear-gradient(135deg, var(--accent-cyan), #00aeff);

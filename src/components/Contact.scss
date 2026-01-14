@@ -89,6 +89,11 @@
 
         .contact-form-wrapper {
             padding: 40px;
+
+            @media (max-width: 768px) {
+                padding: 25px;
+            }
+
             border-radius: 20px;
 
             .form-group {
