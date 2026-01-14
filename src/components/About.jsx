@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { Award, Briefcase, Code, User } from 'lucide-react';
-import profileImg from '../assets/profile.png';
+import profileImg from '../assets/profiles.jpeg';
 import './About.scss';
 
 const About = () => {
@@ -40,6 +40,10 @@ const About = () => {
                             <Award size={20} />
                             <span>Designer</span>
                         </div>
+                        <div className="floating-badge badge-3">
+                            <Award size={20} />
+                            <span>Data Scientist</span>
+                        </div>
                     </motion.div>
 
                     <motion.div
@@ -50,32 +54,25 @@ const About = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <h3 className="heading">
-                            A passionate <span className="gradient-text">Creative Developer</span> based in the digital realm.
+                            A passionate <span className="gradient-text">Software Engineer & Data Scientist</span> based in the digital realm.
                         </h3>
                         <p className="description">
-                            I specialize in building exceptional digital experiences. With a strong focus on
-                            interactive design and performance, I transform complex problems into
-                            elegant, intuitive solutions.
+                            I am a motivated and detail-oriented developer with a strong interest in building reliable, high-quality digital solutions. My work focuses on combining modern software engineering practices with data-driven approaches to design efficient, scalable, and user-focused applications.
                         </p>
                         <p className="description">
-                            My journey started with a curiosity for how things work, leading me to master
-                            modern web technologies. I believe in clean code, pixel-perfect design,
-                            and user-centric development.
+                            I am currently a third-year undergraduate at IIT, pursuing a degree in Artificial Intelligence and Data Science, and I have gained over six months of professional experience as a Data Science Intern at Sampath Bank. Through both academic and industry exposure, I have developed a strong commitment to clean code, performance optimization, and delivering practical, well-engineered solutions.
                         </p>
 
                         <div className="stats-grid">
                             <div className="stat-item glass">
-                                <span className="count">5+</span>
+                                <span className="count">1+</span>
                                 <span className="label">Years Exp.</span>
                             </div>
                             <div className="stat-item glass">
-                                <span className="count">50+</span>
+                                <span className="count">5+</span>
                                 <span className="label">Projects</span>
                             </div>
-                            <div className="stat-item glass">
-                                <span className="count">20+</span>
-                                <span className="label">Clients</span>
-                            </div>
+
                         </div>
 
                         <div className="social-links">

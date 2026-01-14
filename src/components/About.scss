@@ -131,6 +131,16 @@
                         color: var(--accent-purple);
                     }
                 }
+
+                &.badge-3 {
+                    bottom: 20px;
+                    right: -20px;
+                    animation-delay: 1.5s;
+
+                    svg {
+                        color: var(--accent-cyan);
+                    }
+                }
             }
         }
 
