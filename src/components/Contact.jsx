@@ -161,7 +161,7 @@ const Contact = () => {
             </div>
 
             <footer className="footer">
-                <p>&copy; 2024 Vinuka. Made with <span style={{ color: 'var(--accent-purple)' }}>♥</span> and React.</p>
+                <p>&copy; 2025 Vinuka. Made with  React.</p>
             </footer>
         </section>
     );
